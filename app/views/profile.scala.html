@@ -1,0 +1,83 @@
+@(regFrom: Form[forms.User])(implicit requestHeader: RequestHeader,flash:Flash)
+@import helper._
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Form</title>
+
+
+    <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/signup.css")">
+</head>
+<body>
+<div id="id01" class="container">
+    <div class="center_div">
+
+        <form  class="modal-content" action="/signUp" method="POST">
+            @CSRF.formField
+            <div class="container">
+                <h1>Profile</h1>
+
+                <hr>
+
+
+                First Name
+                <input type="text" name="firstname" id="firstname" value="@regFrom("firstname").value/>
+
+                <label for="middlename">Middle Name</label>
+                <input type="text" name="middlename" id="middlename" value="@regFrom("middlename").value/>
+
+                <label for="lastname">Last Name</label>
+                <input type="text" name="lastname" id="lastname" value="@regFrom("lastname").value/>
+
+
+                <label for="username">User Name</label>
+                <input type="text" name="username" id="username" value="@regFrom("username").value/>
+
+                <label for="phoneNo">Phone Number</label>
+                <input type="number" name="phoneNo" id="phoneNo" value="@regFrom("phoneNo").value/>
+
+                Gender:
+                <input type="text" name="gender"  required/>
+
+                <label for="age">Age</label>
+                <input type="number" name="age" min="18" max="75" id="age" value="@regFrom("age").value/>
+
+                Hobbies:
+                <label class="container">singing
+                    <input type="checkbox" checked="checked" name="hobbies">
+                </label>
+
+                <label class="container">dancing
+                    <input type="checkbox" name="hobbies">
+                </label>
+
+                <label class="container">reading
+                    <input type="checkbox" name="hobbies">
+                </label>
+
+                <label class="container">playing
+                    <input type="checkbox" name="hobbies">
+                </label><br>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                        Cancel
+                    </button>
+                    <button type="submit" class="signupbtn" id="button" >Update</button>
+                </div>
+
+
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="@routes.Assets.versioned("javascripts/script.js")"></script>
+</body>
+</html>
+
+

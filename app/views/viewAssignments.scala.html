@@ -1,0 +1,32 @@
+@(record:Seq[modals.AssignmentRepo])(implicit requestHeader:RequestHeader,flash:Flash)
+@import helper._
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>View Assignment</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="@routes.Assets.versioned(" stylesheets/signup.css")">
+</head>
+<body>
+
+<div >
+    <table >
+        <thead ><th >Title</th>
+
+        <th >Description</th></thead>
+        <tbody>
+        @for(assignment <- record){
+        <tr >
+            <td >@assignment.title</td>
+            <td>@assignment.details</td>
+            <td><button><a href="#">Delete</a></button></td>
+        </tr>
+        }
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

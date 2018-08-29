@@ -1,0 +1,40 @@
+
+@()(implicit requestHeader: RequestHeader,flash:Flash)
+@import helper._
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/signin.css")"></head>
+<body>
+<div id="id02" class="modal">
+
+    <form class="modal-content animate" action="/signIn" method="POST">
+        @CSRF.formField
+        <div class="imgcontainer">
+            <img src="@routes.Assets.versioned("Images/img_avatar2.png")" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+            <b>Username</b>
+            <input type="text" placeholder="Enter Username" name="username" required>
+
+            <b>Password</b>
+            <input type="password" placeholder="Enter Password" name="password" required>
+
+            <button type="submit">Login</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+
+        <div class="container" class="forgetpassword">
+            <button type="submit" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="@routes.Application.resetPassword">password?</a></span>
+        </div>
+
+    </form>
+</div>
+<script src="@routes.Assets.versioned("javascripts/script.js")"></script>
+</body>
+</html>

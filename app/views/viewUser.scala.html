@@ -1,0 +1,33 @@
+@(regFrom: Seq[modals.UserRepo])(implicit requestHeader: RequestHeader,flash:Flash)
+@import helper._
+
+<!DOCTYPE html>
+<head><title>View User</title></head>
+<body>
+<h2>Registered User Table</h2>
+
+<table>
+    <tr>
+        <th>FirstName</th>
+        <th>MiddleName</th>
+        <th>LastName</th>
+        <th>username</th>
+    </tr>
+    <tr>
+        <tbody>
+
+        @for(user <- regFrom){
+        <td>@user.firstname</td>
+        <td>@user.middlename</td>
+        <td>@user.lastname</td>
+        <td>@user.username</td>
+        <td><button >Enable</button></td>
+        <td><button >Disable</button></td><tr>
+            }
+        </tr>
+        </tbody>
+    </tr>
+
+
+</table>
+</body>

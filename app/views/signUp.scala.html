@@ -1,0 +1,99 @@
+@(regFrom: Form[forms.User])(implicit requestHeader: RequestHeader,flash:Flash)
+@import helper._
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Form</title>
+
+
+    <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/signup.css")">
+</head>
+<body>
+<div id="id01" class="container">
+    <div class="center_div">
+
+        <form  name="customForm" class="modal-content" action="/signUp" method="POST">
+            @CSRF.formField
+            <div class="container">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+
+
+                Type<input type="text" name="userType" placeholder="usertype" required/>
+
+                <label for="firstname">First Name</label>
+                <input type="text" name="firstname" id="firstname" placeholder="John" required/>
+
+                <label for="middlename">Middle Name</label>
+                <input type="text" name="middlename" id="middlename" placeholder="John"/>
+
+                <label for="lastname">Last Name</label>
+                <input type="text" name="lastname" id="lastname" placeholder="Doe" required/>
+
+
+                <label for="username">User Name</label>
+                <input type="text" name="username" id="username" required/>
+
+                <label for="Password">Password</label>
+                <input type="password" name="passwordGroup.password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                       required/>
+
+                <label for="confirmPassword">Re-enter Password</label>
+                <input type="password" name="passwordGroup.confirmPassword" id="confirmPassword" required/>
+                <p>@regFrom("passwordGroup").errors.map(error=>error.messages)</p>
+
+                <label for="phoneNo">Phone Number</label>
+                <input type="number" name="phoneNo" id="phoneNo" placeholder="Enter 10 digit number" required/>
+
+                Gender:
+                <input type="text" name="gender"  required/>
+
+
+                <label for="age">Age</label>
+                <input type="number" name="age" min="18" max="75" id="age" required/>
+
+               Hobbies:
+                <label class="container">singing
+                    <input type="checkbox" checked="checked" name="hobbies">
+                </label>
+
+                <label class="container">dancing
+                    <input type="checkbox" name="hobbies">
+                </label>
+
+                <label class="container">reading
+                    <input type="checkbox" name="hobbies">
+                </label>
+
+                <label class="container">playing
+                    <input type="checkbox" name="hobbies">
+                </label><br>
+
+                <p>By creating an account you agree to our <a href="#" class="terms-style">
+                    Terms & Privacy</a>.</p>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                        Cancel
+                    </button>
+                    <button type="submit" class="signupbtn" id="button" >Sign Up</button>
+                </div>
+                    <div class="container signin">
+                        <p>Already have an account? <a href="@routes.Application.signInIndex">Sign in</a>.</p>
+                    </div>
+
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="@routes.Assets.versioned("javascripts/script.js")"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,26 @@
+@()(implicit requestHeader: RequestHeader,flash:Flash)
+@import helper._
+<head><link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/nProfile.css")"> </head>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="@routes.Application.index">HOME</a></li>
+                <li><a href="/profile">PROFILE</a></li>
+                <li><a href="@routes.Application.viewAssignment">VIEW ASSIGNMENTS</a></li>
+                <li><a href="@routes.Application.index">LOGOUT</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
