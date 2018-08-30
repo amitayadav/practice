@@ -1,3 +1,5 @@
 unzip seed-1.0-SNAPSHOT.zip
-nohup ./seed-1.0-SNAPSHOT/bin/seed &
+withEnv(['BUILD-ID=dontkill']){
+sh "nohup ./seed-1.0-SNAPSHOT/bin/seed &"
+}
 
