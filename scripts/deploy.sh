@@ -3,7 +3,7 @@ rm -rf seed-1.0-SNAPSHOT
 unzip seed-1.0-SNAPSHOT.zip
 ./seed-1.0-SNAPSHOT/bin/seed &
 rm -rf seed-1.0-SNAPSHOT.zip
-rm -rf play.out
+
 
 
 
